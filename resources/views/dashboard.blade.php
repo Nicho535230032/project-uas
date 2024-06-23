@@ -10,9 +10,6 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
-                    <div class="mt-4">
-                        <a href="{{ route('notifications') }}" class="text-blue-500 hover:underline">Notifications</a>
-                    </div>
                 </div>
             </div>
         </div>
