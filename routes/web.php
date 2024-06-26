@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\ReplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('threads', ThreadController::class);
+Route::post('threads/{thread}/replies', [ReplyController::class, 'store'])->name('replies.store');
+
 
 
 require __DIR__.'/auth.php';
