@@ -14,10 +14,13 @@ class ReplyController extends Controller
             'body' => 'required',
         ]);
 
-        $thread->replies()->create([
+        $reply = $thread->replies()->create([
             'body' => $request->body,
             'user_id' => auth()->id(),
         ]);
+
+        // Set indikator has_new_reply
+        $thread->update(['has_new_reply' => true]);
 
         return redirect()->route('threads.show', $thread);
     }

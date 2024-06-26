@@ -36,6 +36,11 @@ class ThreadController extends Controller
 
     public function show(Thread $thread)
     {
+        // Reset indikator has_new_reply
+        if (auth()->id() == $thread->user_id) {
+            $thread->update(['has_new_reply' => false]);
+        }
+
         return view('threads.show', compact('thread'));
     }
 }

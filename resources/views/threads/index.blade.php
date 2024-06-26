@@ -6,6 +6,9 @@
                 <li>
                     <a href="{{ route('threads.show', $thread) }}">{{ $thread->title }}</a>
                     <p>{{ $thread->body }}</p>
+                    @if($thread->has_new_reply)
+                        <span class="badge badge-warning">NEW REPLY</span>
+                    @endif
                 </li>
             @endforeach
         </ul>

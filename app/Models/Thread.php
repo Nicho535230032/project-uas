@@ -9,7 +9,11 @@ class Thread extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'body', 'user_id'];
+    protected $fillable = ['title', 'body', 'user_id', 'has_new_reply'];
+
+    protected $casts = [
+        'has_new_reply' => 'boolean',
+    ];
 
     public function user()
     {
@@ -21,3 +25,4 @@ class Thread extends Model
         return $this->hasMany(Reply::class);
     }
 }
+
