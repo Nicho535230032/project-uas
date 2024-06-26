@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ThreadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/messages', [MessageController::class, 'sendMessage']);
     Route::get('/messages/data', [MessageController::class, 'getMessages']);
 });
+
+Route::resource('threads', ThreadController::class);
 
 
 require __DIR__.'/auth.php';
